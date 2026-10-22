@@ -39,11 +39,24 @@ function playRound(humanChoice, computerChoice) {
   roundResult.textContent = roundMessage;
 
   scoreDisplay.textContent = `You: ${humanScore} | Computer: ${computerScore}`;
+
+  if (humanScore === 5 || computerScore === 5) {
+    if (humanScore === 5) {
+      gameResult.textContent = "You won the game!";
+    } else {
+      gameResult.textContent = "Computer won the game!";
+    }
+
+    buttons.forEach((button) => {
+      button.disabled = true;
+    });
+  }
 }
 
 const buttons = document.querySelectorAll("#choices button");
 const roundResult = document.querySelector("#round-result");
 const scoreDisplay = document.querySelector("#score");
+const gameResult = document.querySelector("#game-result");
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
