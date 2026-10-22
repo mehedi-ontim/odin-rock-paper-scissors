@@ -1,4 +1,3 @@
-
 function getComputerChoice() {
   const randomNumber = Math.random();
 
@@ -37,11 +36,14 @@ function playRound(humanChoice, computerChoice) {
     }
   }
 
-  console.log(roundMessage);
-  console.log(`You: ${humanScore} | Computer: ${computerScore}`);
+  roundResult.textContent = roundMessage;
+
+  scoreDisplay.textContent = `You: ${humanScore} | Computer: ${computerScore}`;
 }
 
 const buttons = document.querySelectorAll("#choices button");
+const roundResult = document.querySelector("#round-result");
+const scoreDisplay = document.querySelector("#score");
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
